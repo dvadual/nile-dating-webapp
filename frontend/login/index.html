@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Log in or sign up for Love Garden."
+    >
+    <title>Log in or Sign Up — Love Garden</title>
+    <link rel="stylesheet" href="../css/auth.css">
+    <script src="../js/auth.js" defer></script>
+  </head>
+  <body>
+    <main class="auth-page">
+      <section class="auth-card" id="auth-card" aria-label="Love Garden account">
+        <div class="form-panel">
+          <a class="auth-brand" href="/">Love Garden</a>
+
+          <form class="auth-form" id="login-form">
+            <h1>Welcome Back</h1>
+            <label for="login-email">Email</label>
+            <input id="login-email" name="email" type="email" autocomplete="email" required>
+            <label for="login-password">Password</label>
+            <input
+              id="login-password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            >
+            <button class="form-submit" type="submit">Log In</button>
+            <a class="form-link" href="#" data-placeholder-link>Forgot password?</a>
+            <p class="form-alternative">
+              New to Love Garden?
+              <button class="text-button" type="button" data-switch-state="signup">Sign up</button>
+            </p>
+            <p class="form-status" role="status" aria-live="polite" hidden></p>
+          </form>
+
+          <form class="auth-form" id="signup-form" hidden>
+            <h1>Create Your Account</h1>
+            <label for="signup-name">Full name</label>
+            <input id="signup-name" name="name" type="text" autocomplete="name" required>
+            <label for="signup-email">Email</label>
+            <input id="signup-email" name="email" type="email" autocomplete="email" required>
+            <label for="signup-password">Password</label>
+            <input
+              id="signup-password"
+              name="password"
+              type="password"
+              autocomplete="new-password"
+              minlength="8"
+              required
+            >
+            <label for="signup-confirm-password">Confirm password</label>
+            <input
+              id="signup-confirm-password"
+              name="confirm-password"
+              type="password"
+              autocomplete="new-password"
+              minlength="8"
+              required
+            >
+            <button class="form-submit" type="submit">Sign Up</button>
+            <p class="form-status" role="status" aria-live="polite" hidden></p>
+          </form>
+        </div>
+
+        <aside class="welcome-panel" aria-label="Welcome">
+          <div class="welcome-content" id="welcome-login">
+            <h2>New Here?</h2>
+            <p>Start your next chapter with Love Garden.</p>
+            <button class="welcome-button" type="button" data-switch-state="signup">
+              Sign Up
+            </button>
+          </div>
+          <div class="welcome-content" id="welcome-signup" hidden>
+            <h2>Been Here Before?</h2>
+            <p>Welcome back to your Garden.</p>
+            <button class="welcome-button" type="button" data-switch-state="login">
+              Log In
+            </button>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>
