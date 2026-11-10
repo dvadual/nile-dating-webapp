@@ -23,7 +23,7 @@ from app.core.database import DATABASE_URL, engine, get_db
 from app.models import Interest, User
 
 logger = logging.getLogger(__name__)
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parent
 ALEMBIC_INI = PROJECT_ROOT / "alembic.ini"
 ALEMBIC_DIR = PROJECT_ROOT / "alembic"
 SEED_API_KEY = os.getenv("SEED_API_KEY")

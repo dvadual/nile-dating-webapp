@@ -1,9 +1,12 @@
 import os
 from collections.abc import AsyncIterator
 
+from dotenv import load_dotenv
 from sqlalchemy.engine import URL, make_url
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
+
+load_dotenv()
 
 
 class Base(DeclarativeBase):
@@ -25,7 +28,11 @@ def _database_url() -> URL:
 
 
 DATABASE_URL = _database_url()
-engine = create_async_engine(DATABASE_URL, pool_pre_ping=True)
+engine = create_async_engine(
+    DATABASE_URL,
+    pool_pre_ping=True,
+    connect_args={"ssl": "require", "statement_cache_size": 0},
+)
 async_session_factory = async_sessionmaker(engine, expire_on_commit=False)
 
 
